@@ -1,12 +1,26 @@
-import { TextInput, View, StyleSheet } from 'react-native';
+import {
+  TextInput,
+  View,
+  StyleSheet,
+  KeyboardAvoidingView,
+  ScrollView,
+} from 'react-native';
 import Button from '../components/Button/Button';
 const StartScreen = () => {
   return (
-    <View style={styles.inputContainer}>
-      <TextInput style={styles.numberInput} maxLength={2} />
-      <Button>Reset</Button>
-      <Button>Confirm</Button>
-    </View>
+    <ScrollView style={{ flex: 1 }}>
+      <KeyboardAvoidingView style={{ flex: 1 }} behavior='position'>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.numberInput}
+            maxLength={2}
+            keyboardType='number-pad'
+          />
+          <Button>Reset</Button>
+          <Button>Confirm</Button>
+        </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 
@@ -18,7 +32,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginHorizontal: 24,
     borderRadius: 8,
-    backgroundColor: '#72063c',
+    backgroundColor: 'white',
     elevation: 4,
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
